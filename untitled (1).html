@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Overthinking Helper</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #071d3b;
+    color: white;
+}
+
+/* TOP */
+
+.top {
+    background: white;
+    color: #17395d;
+    padding: 10px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top a {
+    color: #17395d;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: #102c50;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    background: #e9f8f7;
+    color: #17395d;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo h3 {
+    font-size: 15px;
+}
+
+.logo p {
+    color: #9db7c5;
+    font-size: 10px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #dce9ee;
+    text-decoration: none;
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.nav-links a:hover {
+    background: #315475;
+}
+
+/* HERO */
+
+.hero {
+    margin: 15px auto;
+    width: 94%;
+    min-height: 430px;
+    border-radius: 25px;
+
+    background:
+    radial-gradient(
+        circle at 75% 35%,
+        #315b76,
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 35% 70%,
+        #183b5c,
+        transparent 35%
+    ),
+    linear-gradient(
+        120deg,
+        #10294c,
+        #081f3e
+    );
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    padding: 50px;
+    max-width: 650px;
+}
+
+.hero-small {
+    color: #9ed2d0;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: #c5d8df;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+button {
+    background: #e9f8f7;
+    color: #17395d;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* CARDS */
+
+.section-title {
+    width: 94%;
+    margin: 25px auto 15px;
+    font-family: Georgia, serif;
+}
+
+.cards {
+    width: 94%;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns:
+    repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.card {
+    background: #102c50;
+    border: 1px solid #2d4e6d;
+    border-radius: 18px;
+    padding: 22px;
+    cursor: pointer;
+}
+
+.card:hover {
+    background: #173a60;
+    transform: translateY(-4px);
+}
+
+.card-icon {
+    font-size: 28px;
+    color: #a8d9d6;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #9fb8c5;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* SECTIONS */
+
+section.content {
+    width: 94%;
+    margin: 70px auto 0;
+}
+
+.box {
+    background: #102c50;
+    border: 1px solid #2d4e6d;
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+}
+
+.box h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.box > p {
+    color: #b6ccd7;
+    margin-bottom: 25px;
+}
+
+/* JOURNAL */
+
+textarea {
+    width: 100%;
+    height: 180px;
+    background: #071d3b;
+    color: white;
+    border: 1px solid #41617e;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 15px;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+#journalMessage {
+    color: #a8d9d6;
+    margin: 15px;
+}
+
+.thought {
+    text-align: left;
+    background: #0a2444;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.date {
+    color: #7893a3;
+    font-size: 10px;
+    margin-top: 7px;
+}
+
+/* BREATHING */
+
+#circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #82babb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 35px auto;
+
+    color: #08213d;
+    font-weight: bold;
+
+    transition: transform 4s ease-in-out;
+}
+
+.grow {
+    transform: scale(1.4);
+}
+
+/* MINDFULNESS */
+
+.mindfulness {
+    background: #0a2444;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: left;
+    max-width: 600px;
+    margin: auto;
+}
+
+.mindfulness li {
+    margin: 12px 0;
+    color: #c4d7df;
+}
+
+/* MOOD */
+
+.moods {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.moods button {
+    background: #0a2444;
+    color: white;
+    border: 1px solid #365675;
+    min-width: 85px;
+}
+
+.moods span {
+    display: block;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+#moodResult {
+    color: #a8d9d6;
+    font-size: 18px;
+    margin: 20px;
+}
+
+.moodItem {
+    display: flex;
+    justify-content: space-between;
+    background: #0a2444;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+/* ABOUT */
+
+.about {
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 70px;
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid #294b6b;
+}
+
+footer p {
+    color: #8fa9b8;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .hero-content {
+        padding: 35px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+}
+
+@media(max-width: 450px) {
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .box {
+        padding: 25px 18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="top">
+
+    <b>✦</b>
+
+    <a href="#about">
+        Sign Up & Login
+    </a>
+
+</div>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            ✦
+        </div>
+
+        <div>
+
+            <h3>
+                Overthinking Helper
+            </h3>
+
+            <p>
+                a softer place to land
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#journal">Journal</a>
+
+        <a href="#breathe">Breathe</a>
+
+        <a href="#mindfulness">Mindfulness</a>
+
+        <a href="#mood">Mood</a>
+
+        <a href="#about">About</a>
+
+    </div>
+
+</nav>
+
+
+<!-- HOME -->
+
+<div id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            YOUR CALM CORNER
+        </div>
+
+        <h1>
+            Let your thoughts drift, not drive.
+        </h1>
+
+        <p>
+            You do not have to solve every thought right now.
+            Choose one small practice and come back to
+            the present moment.
+        </p>
+
+        <button onclick="goJournal()">
+            Write what is on your mind
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- FEATURES -->
+
+<h2 class="section-title">
+    Choose your next small step
+</h2>
+
+
+<div class="cards">
+
+    <div class="card"
+         onclick="goTo('journal')">
+
+        <div class="card-icon">
+            📝
+        </div>
+
+        <h3>
+            Thought Journal
+        </h3>
+
+        <p>
+            Give looping thoughts somewhere safe to go.
+        </p>
+
+    </div>
+
+
+    <div class="card"
+         onclick="goTo('breathe')">
+
+        <div class="card-icon">
+            🫁
+        </div>
+
+        <h3>
+            Breathing Space
+        </h3>
+
+        <p>
+            Follow a slow, steady rhythm for one moment.
+        </p>
+
+    </div>
+
+
+    <div class="card"
+         onclick="goTo('mindfulness')">
+
+        <div class="card-icon">
+            🌿
+        </div>
+
+        <h3>
+            Mindfulness
+        </h3>
+
+        <p>
+            Return to what you can see, hear and feel.
+        </p>
+
+    </div>
+
+
+    <div class="card"
+         onclick="goTo('mood')">
+
+        <div class="card-icon">
+            ♡
+        </div>
+
+        <h3>
+            Mood Tracker
+        </h3>
+
+        <p>
+            Notice your mood with kindness.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- JOURNAL -->
+
+<section id="journal" class="content">
+
+<div class="box">
+
+    <div style="font-size:35px;">
+        📝
+    </div>
+
+    <h2>
+        Thought Journal
+    </h2>
+
+    <p>
+        What's on your mind?
+    </p>
+
+    <textarea
+        id="thought"
+        placeholder="Write your thoughts here..."
+    ></textarea>
+
+    <button onclick="saveThought()">
+        Save Thought
+    </button>
+
+    <div id="journalMessage"></div>
+
+    <div id="thoughtList"></div>
+
+</div>
+
+</section>
+
+
+<!-- BREATHING -->
+
+<section id="breathe" class="content">
+
+<div class="box">
+
+    <div style="font-size:35px;">
+        🫁
+    </div>
+
+    <h2>
+        Breathing Space
+    </h2>
+
+    <p>
+        Follow the circle and breathe slowly.
+    </p>
+
+
+    <div id="circle">
+        Ready
+    </div>
+
+
+    <p id="breathText">
+        Press Start to begin.
+    </p>
+
+
+    <button onclick="breathing()">
+        Start Breathing
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- MINDFULNESS -->
+
+<section id="mindfulness" class="content">
+
+<div class="box">
+
+    <div style="font-size:35px;">
+        🌿
+    </div>
+
+    <h2>
+        Mindfulness
+    </h2>
+
+    <p>
+        Try the 5–4–3–2–1 grounding exercise.
+    </p>
+
+
+    <div class="mindfulness">
+
+        <ul>
+
+            <li>
+                <b>5</b> things you can see
+            </li>
+
+            <li>
+                <b>4</b> things you can touch
+            </li>
+
+            <li>
+                <b>3</b> things you can hear
+            </li>
+
+            <li>
+                <b>2</b> things you can smell
+            </li>
+
+            <li>
+                <b>1</b> thing you can taste
+            </li>
+
+        </ul>
+
+
+        <button onclick="mindfulDone()">
+            I Finished
+        </button>
+
+
+        <p id="mindfulMessage"></p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- MOOD -->
+
+<section id="mood" class="content">
+
+<div class="box">
+
+    <div style="font-size:35px;">
+        ♡
+    </div>
+
+    <h2>
+        Mood Tracker
+    </h2>
+
+    <p>
+        How are you feeling right now?
+    </p>
+
+
+    <div class="moods">
+
+        <button onclick="mood('😄','Happy')">
+            😄
+            <span>Happy</span>
+        </button>
+
+        <button onclick="mood('🙂','Good')">
+            🙂
+            <span>Good</span>
+        </button>
+
+        <button onclick="mood('😐','Okay')">
+            😐
+            <span>Okay</span>
+        </button>
+
+        <button onclick="mood('😟','Worried')">
+            😟
+            <span>Worried</span>
+        </button>
+
+        <button onclick="mood('😢','Sad')">
+            😢
+            <span>Sad</span>
+        </button>
+
+    </div>
+
+
+    <div id="moodResult"></div>
+
+
+    <h3>
+        Recent moods
+    </h3>
+
+
+    <div id="moodHistory"></div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about" class="content">
+
+<div class="box">
+
+    <div style="font-size:35px;">
+        ℹ️
+    </div>
+
+    <h2>
+        About
+    </h2>
+
+    <p class="about">
+
+        Overthinking Helper is a student project
+        designed to provide a calm space for writing
+        thoughts, practising breathing, mindfulness
+        and tracking moods.
+
+        <br><br>
+
+        Take one small step at a time. 🌿
+
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>
+        ✦ Overthinking Helper
+    </h3>
+
+    <p>
+        A softer place to land.
+    </p>
+
+    <p>
+        © 2026 Overthinking Helper
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function goTo(id) {
+
+    document
+        .getElementById(id)
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+function goJournal() {
+
+    goTo("journal");
+
+}
+
+
+/* =========================
+   JOURNAL
+========================= */
+
+function saveThought() {
+
+    let text =
+        document
+        .getElementById("thought")
+        .value
+        .trim();
+
+
+    let message =
+        document
+        .getElementById("journalMessage");
+
+
+    if (text === "") {
+
+        message.innerText =
+            "Please write something first.";
+
+        return;
+
+    }
+
+
+    let thoughts =
+        JSON.parse(
+            localStorage.getItem("thoughts")
+        ) || [];
+
+
+    thoughts.unshift({
+
+        text: text,
+
+        date: new Date().toLocaleString()
+
+    });
+
+
+    localStorage.setItem(
+        "thoughts",
+        JSON.stringify(thoughts)
+    );
+
+
+    document
+        .getElementById("thought")
+        .value = "";
+
+
+    message.innerText =
+        "Thought saved ✦";
+
+
+    showThoughts();
+
+}
+
+
+function showThoughts() {
+
+    let list =
+        document.getElementById(
+            "thoughtList"
+        );
+
+
+    let thoughts =
+        JSON.parse(
+            localStorage.getItem("thoughts")
+        ) || [];
+
+
+    list.innerHTML = "";
+
+
+    thoughts.slice(0, 5).forEach(function(item) {
+
+        let div =
+            document.createElement("div");
+
+
+        div.className =
+            "thought";
+
+
+        div.innerHTML =
+            "<p>" +
+            escapeHTML(item.text) +
+            "</p>" +
+
+            "<div class='date'>" +
+            item.date +
+            "</div>";
+
+
+        list.appendChild(div);
+
+    });
+
+}
+
+
+function escapeHTML(text) {
+
+    let div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================
+   MINDFULNESS
+========================= */
+
+function mindfulDone() {
+
+    document
+        .getElementById("mindfulMessage")
+        .innerText =
+        "Well done! You completed the exercise. 🌿";
+
+}
+
+
+/* =========================
+   BREATHING
+========================= */
+
+let breathingRunning = false;
+
+
+function breathing() {
+
+    if (breathingRunning)
+        return;
+
+
+    breathingRunning = true;
+
+
+    let circle =
+        document.getElementById("circle");
+
+
+    let text =
+        document.getElementById("breathText");
+
+
+    function cycle() {
+
+        circle.classList.add("grow");
+
+        circle.innerText =
+            "Breathe In";
+
+        text.innerText =
+            "Slowly breathe in...";
+
+
+        setTimeout(function() {
+
+            circle.innerText =
+                "Hold";
+
+            text.innerText =
+                "Hold gently...";
+
+
+            setTimeout(function() {
+
+                circle.classList.remove(
+                    "grow"
+                );
+
+                circle.innerText =
+                    "Breathe Out";
+
+                text.innerText =
+                    "Slowly breathe out...";
+
+
+                setTimeout(function() {
+
+                    cycle();
+
+                }, 4000);
+
+
+            }, 4000);
+
+
+        }, 4000);
+
+    }
+
+
+    cycle();
+
+}
+
+
+/* =========================
+   MOOD
+========================= */
+
+function mood(emoji, name) {
+
+    document
+        .getElementById("moodResult")
+        .innerText =
+        "Today you feel " +
+        emoji +
+        " " +
+        name +
+        ".";
+
+
+    let moods =
+        JSON.parse(
+            localStorage.getItem("moods")
+        ) || [];
+
+
+    moods.unshift({
+
+        emoji: emoji,
+
+        name: name,
+
+        date: new Date()
+            .toLocaleDateString()
+
+    });
+
+
+    localStorage.setItem(
+        "moods",
+        JSON.stringify(moods)
+    );
+
+
+    showMoods();
+
+}
+
+
+function showMoods() {
+
+    let history =
+        document.getElementById(
+            "moodHistory"
+        );
+
+
+    let moods =
+        JSON.parse(
+            localStorage.getItem("moods")
+        ) || [];
+
+
+    history.innerHTML = "";
+
+
+    moods.slice(0, 7)
+    .forEach(function(item) {
+
+        let div =
+            document.createElement("div");
+
+
+        div.className =
+            "moodItem";
+
+
+        div.innerHTML =
+            "<span>" +
+            item.emoji +
+            " " +
+            item.name +
+            "</span>" +
+
+            "<span>" +
+            item.date +
+            "</span>";
+
+
+        history.appendChild(div);
+
+    });
+
+}
+
+
+/* LOAD SAVED DATA */
+
+showThoughts();
+
+showMoods();
+
+</script>
+
+
+</body>
+
+</html>
